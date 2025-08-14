@@ -1,0 +1,107 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="card-body">
+    <div class="card mb-3">
+   
+        <div class="card-body">
+            <div class="d-md-flex align-items-baseline mt-3">       
+                <h5 class="card-title">Administración de opciones de titulación por carrera</h5>
+                <div class="d-flex align-items-center gap-1 text-nowrap ms-auto mb-3">
+                    <button type="button" class="btn btn-info hstack gap-2 mb-3" data-bs-toggle="modal"
+                        data-bs-target="#modal-agregar-opciones-titulacion">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Agregar Opción de titulación
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Opcion de titulacion</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let objReg of vOpcionesTitulacionPorCarrera">
+                            <td>{{objReg.idOpcionTitulacion}}</td>
+                            <td>{{objReg.nombre}}</td>
+                            <td>{{objReg.estado}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Aqui termina el Cuerpo -->
+
+<!-- INICIO MODAL-->
+<div class="modal" tabindex="-1" id="modal-agregar-opciones-titulacion">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: large; font-weight: 400">Agregar opciones de titulación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <div class="row mt-3">
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="periodo">Periodo de titulación</label>
+                                <div class="dropdown">
+                                    <select class="form-select" id="periodo" name="periodo" 
+                                        [(ngModel)]="componentesConfiguracionTitulacion.idPeriodo" >                                
+                                        <option value="" disabled selected>Seleccione una opción</option>
+                                        <option [value]="entidadPeriodo.periodoId">{{ entidadPeriodo.descripcion }} </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="carrera">Configuración de carrera</label>
+                                <div class="dropdown">
+                                    <select class="form-select" id="carrera" name="carrera" 
+                                    [(ngModel)]="componentesConfiguracionTitulacion.idConfiguracionCarrera">                              
+                                        <option value="" disabled selected>Seleccione una opción</option>
+                                        <option [value]="configuracionCarrera.idConfiguracionCarrera">{{configuracionCarrera.nombre}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="opcion">Opción de titulación</label>
+                                <div class="dropdown">
+                                    <select class="form-select" id="opcion" name="opcion" 
+                                    (change)="seleccionarOpcionTitulacion($event)"
+                                    [(ngModel)]="componentesConfiguracionTitulacion.idOpcionTitulacion">                              
+                                        <option value="" disabled selected>Seleccione una opción</option>
+                                        <option *ngFor="let opciones of vecEntidadOpcionTitulacion"
+                                            [value]="opciones.idOpcionTitulacion">{{ opciones.nombre }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary" >Agregar Seleccionados</button> -->
+
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="GuardarOpcionTitulacionCarrera()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL -->

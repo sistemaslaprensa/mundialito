@@ -1,0 +1,78 @@
+ 
+     <!-- HEADER -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<header class="header">
+    <div class="header__inner">
+        <!-- Brand -->
+        <div class="header__brand">
+            <div class="brand-wrap">
+                <!-- Brand logo -->
+                <a href="./index.html" class="brand-img stretched-link">
+                    <img src="./assets/recursos-graficos/UvirtualBlanco.png" alt="Nifty Logo" class="Nifty logo"
+                        width="40" height="40">
+                </a>
+                <!-- Brand title -->
+                <div class="brand-title hand" [routerLink]="['/paneladministrativo/inicio']"> Unach</div>
+
+                <!-- You can also use IMG or SVG instead of a text element. -->
+                <!-- <button type="button" class="nav-toggler header__btn btn btn-icon btn-sm" aria-label="Nav Toggler">
+                        <i class="pli-list-view"></i>
+                    </button> -->
+            </div>
+        </div>
+        <!-- End - Brand -->
+    </div>
+</header>
+
+<body>
+ <!-- PAGE CONTAINER -->
+    
+ <div class="main">
+    <div class="registrer">
+                    <!-- Register card -->
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <h1>Crear cuenta</h1>
+                                <p>Sistema de titulación</p>
+                            </div>
+
+                            <form class="mt-3" action="#">
+
+                                                           
+
+                                        <div class="mb-3">
+                                            <input type="email" name="email" class="form-control" placeholder="Correo" autofocus
+                                            [(ngModel)]="entidadRegistroLogin.CorreoInstitucional" required="">                                    
+                                        </div>
+                                    <div class="mb-3">
+                                        <input type="password" name="pswd" class="form-control" placeholder="Contraseña"
+                                        [(ngModel)]="entidadRegistroLogin.UsuarioPassword" required="">
+                                    </div>
+                                    <!-- <div class="col-sm-6">
+                                        <input type="password" name="pswd" class="form-control" placeholder="Contraseña"
+                                    [(ngModel)]="entidadRegistroLogin.UsuarioPassword" required="">                                        
+                                    </div> -->
+
+                                <div class="d-grid mt-2">
+                                    <button (click)="registrar()" class="btn btn-primary" type="submit">Registrar</button>
+                                </div>
+                            </form>
+                            <div class="d-flex justify-content-between mt-3">
+                                ¿Ya posees una cuenta?
+                                <a routerLink="/login" class="btn-link text-decoration-none">Iniciar sesión</a>
+                            </div>
+                                               
+                        <div class="d-grid mt-2">
+                            <!-- <button class="btn btn-light" onclick="window.history.back()">Regresar</button> -->
+                            <button class="btn btn-light" onclick="window.history.back()" href="../login/login.html">Regresar</button>
+                         </div>   
+                        </div>          
+                    </div>
+                  
+                </div>
+                
+            </div>
+
+            
+</body>

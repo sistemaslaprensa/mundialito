@@ -1,0 +1,73 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+
+  .subtitulo{
+    margin-top: 1px;
+  }
+
+  .subtitulo {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.d-md-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.direccion {
+    flex: 1;
+    white-space: pre-line; /* Permite mantener los saltos de línea en el texto */
+}
+
+.detalles {
+    text-align: right;
+    white-space: nowrap; /* Mantiene el texto en una sola línea */
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.info-container p {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 5px;
+  align-items: center;
+}
+
+.cedula {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.nombres {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.codigo {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.ciclo {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.periodo {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}

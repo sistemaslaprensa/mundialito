@@ -1,0 +1,88 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+<div class="content__boxed">
+    <div class="content__wrap">
+        <!-- Aqui Inicia el Cuerpo -->
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <!-- Inline Radios -->
+                <label class="col-form-label">Señor estudiante verifique que su información académica sea correcta.
+                    Reporte cualquier novedad en su Secretaría de Carrera.</label>
+                <div class="row mb-3">
+                    <div class="col-sm-9 pt-3">
+                        <div class="form-check form-check-inline">
+                            <input id="_dm-inlineRadio1" class="form-check-input" type="radio" name="inlineRadioOptions"
+                                value="option1" [(ngModel)]="selectedOption" (change)="onOptionChange(selectedOption)">
+                            <label for="_dm-inlineRadio1" class="form-check-label">Ver matrícula vigente</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input id="_dm-inlineRadio2" class="form-check-input" type="radio" name="inlineRadioOptions"
+                                value="option2" [(ngModel)]="selectedOption" (change)="onOptionChange(selectedOption)">
+                            <label for="_dm-inlineRadio3" class="form-check-label">Ver todas las matriculas</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- END : Inline Radios -->
+
+                <!-- GridJS - Hidden columns -->
+                <div role="complementary"style="width: 100%;">
+                    <h3>DETALLE MATRICULAS</h3>
+                    <form action="">
+                        <table class="table table-bordered table-striped" style="height: auto;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20px;">DETALLE</th>
+                                    <th style="width: 40px;">MATRICULA</th>
+                                    <th style="width: 150px;">UNIDAD ACADÉMICA</th>
+                                    <th style="width: 150px;">CARRERA</th>
+                                    <th style="width: 150px;">OPCION DE TITULACION</th>
+                                    <th style="width: 100px;">TIPO MATRICULA</th>
+                                    <th style="width: 150px;">PERIODO ACADÉMICO</th>
+                                    <th style="width: 100px;">SITUACIÓN</th>
+                                    <th style="width: 80px;">ESTADO</th>
+                                </tr>
+                            </thead>
+                            <tbody class="gridjs-tbody">
+                                <ng-container *ngIf="selectedOption === 'option1' && eMatricula">
+                                    <tr class="gridjs-tr">
+                                      <td (click)="generarPDF((eMatricula.idMatriculaTitulacion))" class="hand text-center"><i class="pli-file-clipboard-file-text fs-3"></i></td>
+                                      <td>{{eMatricula.idMatriculaTitulacion}}</td>
+                                      <td>{{eMatricula.facultad}}</td>
+                                      <td>{{eMatricula.carrera}}</td>
+                                      <td>{{eMatricula.opcionTitulacion}}</td>
+                                      <td>{{eMatricula.tipoMatricula}}</td>
+                                      <td>{{eMatricula.periodo}}</td>
+                                      <td>{{eMatricula.situacion}}</td>
+                                      <td>{{eMatricula.estado}}</td>
+                                    </tr>
+                                  </ng-container>
+                                  
+                                  <!-- Mostrar todas las matrículas -->
+                                  <ng-container *ngIf="selectedOption === 'option2'">
+                                    <tr class="gridjs-tr" *ngFor="let matricula of vecMatriculas">
+                                      <td (click)="generarPDF((matricula.idMatriculaTitulacion))" class="hand text-center"><i class="pli-file-clipboard-file-text fs-3"></i></td>
+                                      <td>{{matricula.idMatriculaTitulacion}}</td>
+                                      <td>{{matricula.facultad}}</td>
+                                      <td>{{matricula.carrera}}</td>
+                                      <td>{{matricula.opcionTitulacion}}</td>
+                                      <td>{{matricula.tipoMatricula}}</td>
+                                      <td>{{matricula.periodo}}</td>
+                                      <td>{{matricula.situacion}}</td>
+                                      <td>{{matricula.estado}}</td>
+                                    </tr>
+                                  </ng-container>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <!-- END : GridJS - Hidden columns -->
+            </div>
+        </div>
+    </div>
+    <!-- Aqui termina el Cuerpo -->
+</div>

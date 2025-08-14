@@ -1,0 +1,151 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="card-body">
+    <div class="card mb-3">
+        <div class="card-body">
+            <!-- Inline Form -->
+
+            
+            <div class="d-md-flex align-items-baseline mt-3">             
+                <h5 class="card-title">Administración de tipos de matricula en titulación</h5>
+                <div class="d-flex align-items-center gap-1 text-nowrap ms-auto">
+                    <button type="button" class="btn btn-info hstack gap-2" data-bs-toggle="modal" data-bs-target="#modal-agregar-opcion">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Agregar tipo de matrícula
+                    </button>
+                </div>
+            </div>
+            <div class="d-md-flex align-items-baseline mt-3 mb-3">       
+                <div class="col-sm-9">
+                    <div class="form-check form-check-inline ">
+                        <input id="_dm-inlineRadio3" class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                        <label for="_dm-inlineRadio3" class="form-check-label">Vigentes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="_dm-inlineRadio2" class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                        <label for="_dm-inlineRadio2" class="form-check-label">Ver historial de Tipos de Matricula</label>
+                    </div>
+                </div>     
+            </div>     
+
+            <!-- Tabla informativa -->
+            <div class="table-responsive">
+                <!-- <table class="table table-striped"> -->
+                <table class="mat-elevation-z3 table table-striped-columns">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Arrancel</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let objReg of vecEntidadTipoMatricula">
+                            <td>{{objReg.idTipoMatricula}}</td>
+                            <td>{{objReg.nombre}}</td>
+                            <td>$ {{objReg.arrancel}}</td>
+                            <td>{{objReg.estado}}</td>
+                        </tr>                          
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- INICIO MODAL EDITAR ASIGNACION -->
+<div class="modal" tabindex="-1" id="modal-agregar-opcion">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: large; font-weight: 400">Agregar Tipo de Matrícula</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+
+                <!-- Inline Form -->
+                <label for="inputState" class="form-label">Agregar</label>
+    
+                <div class="row-cols-md-auto g-3 align-items-center">
+                    <div class="col-8">
+                        <label for="inputState" class="form-label">Tipo de Matrícula</label>
+                        <input type="text" class="form-control" name="nombre"  #nombre="ngModel"
+                        [(ngModel)]="componentesTipoMatricula.nombre" id="_dm-inputEmail" placeholder="Tipo de Matrícula...">
+                    </div>
+                    <div class="col-8">
+                        <label for="inputState" class="form-label">Arrancel</label>
+                        <input type="text" class="form-control" name="arrancel"  #nombre="ngModel"
+                        [(ngModel)]="componentesTipoMatricula.arrancel" id="_dm-inputEmail" placeholder="Valor (costo)...">
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="GuardarTipoMatricula()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL EDITAR ASIGNACION -->
+
+<!-- INICIO MODAL EDITAR ASIGNACION -->
+<div class="modal" tabindex="-1" id="mi-modal">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: large; font-weight: 500">Editar Prácticas Asignadas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="_dm-inputAddress2" class="col-sm-6 form-label">Empresa</label>
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <label for="_dm-inputAddress3" class="col-sm-12 form-label">Tipo de Prioridad</label>
+                
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="_dm-inputEmail1" class="form-label">Estudiante</label>
+
+                     
+
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="_dm-inputEmail2" class="form-label">Tutor Académico</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary"
+                    data-bs-dismiss="modal">Guardar
+                    cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL EDITAR ASIGNACION -->

@@ -1,0 +1,100 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="card-body">
+    <div class="card mb-3">
+   
+        <div class="card-body">
+            <div class="d-md-flex align-items-baseline mt-3">       
+                <h5 class="card-title">Administración de valores de arrancel para matriculas de titulación por carrera</h5>
+                <div class="d-flex align-items-center gap-1 text-nowrap ms-auto mb-3">
+                    <!-- <button type="button" class="btn btn-info hstack gap-2 mb-3" data-bs-toggle="modal"
+                        data-bs-target="#modal-agregar-secuencia-periodo">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Agregar arrancel titulación
+                    </button> -->
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tip de matrícula</th>
+                            <th>Valor de arrancel</th>
+                            <th>Estado</th>                                    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vTipos of vecTipoMatricula">
+                            <td>{{vTipos.idTipoMatricula}}</td>
+                            <td>{{vTipos.nombre}}</td>
+                            <td>$ {{vTipos.arrancel}}</td>
+                            <td>{{vTipos.estado}}</td>
+                        </tr>  
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Aqui termina el Cuerpo -->
+
+<!-- INICIO MODAL EDITAR ASIGNACION -->
+<div class="modal" tabindex="-1" id="modal-agregar-secuencia-periodo">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: large; font-weight: 400">Agregar periodo de matriculación de titulación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+
+                <!-- Inline Form -->
+              
+                <div class="row-cols-md-auto g-3 align-items-center">
+                    <div class="col-8">
+                        
+                        <label for="_dm-staticEmail">Seleccione los Periodos </label>
+                        
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label"><strong
+                                            class="m-1">Periodo de titulación</strong></label>
+                                    <ng-select aria-label="Seleccionar Periodo de Titulación"                                        
+                                        placeholder="Seleccione el Periodo de titulación">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <label for="fechaIngreso" class="form-label">
+                                    <strong class="m-1">Periodo Anterior</strong>
+                                </label>
+                                <ng-select aria-label="Seleccionar Periodo de Titulación"                                        
+                                placeholder="Seleccione el Periodo de titulación">
+                            </ng-select>
+                            </div>
+                        </div>                 
+  
+                         </div>
+                </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL EDITAR ASIGNACION -->

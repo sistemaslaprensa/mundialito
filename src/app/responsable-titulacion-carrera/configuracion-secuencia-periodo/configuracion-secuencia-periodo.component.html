@@ -1,0 +1,114 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="card-body">
+    <div class="card mb-3">
+   
+        <div class="card-body">
+            <div class="d-md-flex align-items-baseline mt-3">       
+                <h5 class="card-title">Administración de secuencia de periodos de titulación por carrera</h5>               
+                <div class="d-flex align-items-center gap-1 text-nowrap ms-auto">
+                    <button type="button" class="btn btn-info hstack gap-2" data-bs-toggle="modal"
+                        data-bs-target="#modal-agregar-secuencia-periodo">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Agregar secuencia de periodo de titulación
+                    </button>                    
+                </div>                
+            </div>
+            <div class="col-sm-9 mt-3 mb-3">
+                <div class="form-check form-check-inline">
+                    <input id="_dm-inlineRadio3" class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                    <label for="_dm-inlineRadio3" class="form-check-label">Actual</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input id="_dm-inlineRadio2" class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                    <label for="_dm-inlineRadio2" class="form-check-label">Ver historial de periodos</label>
+                </div>
+            </div>                
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID Secuencia</th>
+                            <th>Periodo</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Periodo Anterior</th>
+                            <th>Estado</th>                                    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let secuenciaPeriodo of vsecuenciaPeriodoCarrera">
+                            <td>{{secuenciaPeriodo.idSecuenciaPeriodo}}</td>
+                            <td>{{secuenciaPeriodo.periodo}}</td>
+                            <td>{{ secuenciaPeriodo.fechaInicio | date: 'yyyy-MM-dd' }} ({{ secuenciaPeriodo.fechaInicio | date: 'HH:mm' }})</td>
+                            <td>{{ secuenciaPeriodo.fechaFin | date: 'yyyy-MM-dd' }} ({{ secuenciaPeriodo.fechaFin | date: 'HH:mm' }})</td>
+                            <td>{{secuenciaPeriodo.periodoAnterior}}</td>
+                            <td>{{secuenciaPeriodo.estado}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Aqui termina el Cuerpo -->
+
+<!-- INICIO MODAL EDITAR ASIGNACION -->
+<div class="modal" tabindex="-1" id="modal-agregar-secuencia-periodo">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: large; font-weight: 400">Agregar secuencia de periodo de titulación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">            
+                    <div class="row-cols-md-auto g-3 align-items-center">
+                        <div class="col-10">
+                        
+                            <label for="_dm-staticEmail">Seleccione los Periodos </label>
+                        
+                            <div class="row mt-3">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="selectPeriodoTitulacion">Periodo de titulación</label>
+                                        <div class="dropdown">
+                                            <select id="selectPeriodoTitulacion" class="form-select dropdown-toggle" name="periodo">
+                                                <option value="" selected disabled>Seleccione una opción</option>
+                                                <option *ngFor="let periodo of vperiodos" [value]="periodo.periodoId">
+                                                    {{periodo.descripcion}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="selectPeriodoAnterior">Periodo Anterior</label>
+                                        <div class="dropdown">
+                                            <select id="selectPeriodoAnterior" class="form-select dropdown-toggle" name="periodoanterior">
+                                                <option value="" selected disabled>Seleccione una opción</option>
+                                                <option *ngFor="let periodo of vperiodos" [value]="periodo.periodoId">
+                                                    {{periodo.descripcion}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL EDITAR ASIGNACION -->

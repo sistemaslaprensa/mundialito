@@ -1,0 +1,230 @@
+<body class="jumping">
+    <!-- PAGE CONTAINER -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div id="root" class="root mn--max hd--expanded">
+
+        <!-- CONTENTS -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <section id="content" class="content">
+            <!-- INFORMACION PAGINA / TITULO /LINEA-NAVEGACION -->
+            <router-outlet></router-outlet>
+            <!-- FIN INFORMACION PAGINA / TITULO /LINEA-NAVEGACION -->
+            
+            <!-- FOOTER -->
+            <footer class="mt-auto">
+                <app-footer></app-footer>
+            </footer>
+            <!-- END - FOOTER -->
+        </section>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- CONTENT -->
+
+        <!-- HEADER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <header class="header">
+            <div class="header__inner">
+                <!-- Logo -->
+                <div class="header__brand">
+                    <div class="brand-wrap">
+                        <!-- logo -->
+                        <a href="./index.html" class="brand-img stretched-link">
+                            <img src="./assets/recursos-graficos/UvirtualBlanco.png" alt="Nifty Logo" class="Nifty logo"
+                                width="40" height="40">
+                        </a>
+                        <!-- logo title -->
+                        <div class="brand-title hand" routerLink="/panel-configuracion"> Unach
+                        </div>
+                    </div>
+                </div>
+                <!-- End - logo -->
+
+                <div class="header__content">
+                    <!-- Content Header - Left Side: -->
+                    <div class="header__content-start">
+                        <!-- Navigation Toggler -->
+                        <button type="button" class="nav-toggler header__btn btn btn-icon btn-sm"
+                            aria-label="Nav Toggler">
+                            <i class="pli-list-view"></i>
+                        </button>
+                    </div>
+                    <!-- End - Content Header - Left Side -->
+
+                    <!-- Content Header - Right Side: -->
+                    <div class="header__content-end">
+                        <span> {{txt_usuario}} </span>
+                        <!-- User dropdown -->
+                        <div class="dropdown">
+                            <!-- Toggler -->
+                            <button class="header__btn btn btn-icon btn-sm" type="button" data-bs-toggle="dropdown"
+                                aria-label="User dropdown" aria-expanded="false">
+                                <i class="psi-male"></i>
+                            </button>
+
+                            <!-- User dropdown menu -->
+                            <div class="dropdown-menu dropdown-menu-end w-md-250px">
+                                <!-- User dropdown header -->
+                                <div class="d-flex align-items-center border-bottom px-3 py-2">
+                                    <div class="flex-shrink-0">
+                                        <img class="img-sm rounded-circle" src="./assets/recursos-graficos/unach5.png"
+                                            alt="Profile Picture" loading="lazy">
+                                        <h5 class="mb-0">{{txt_usuario}}</h5>
+                                        <span class="text-muted fst-italic">{{txt_correoUsuario}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!-- Simple widget and reports -->
+                                    <div class="list-group list-group mb-3">
+                                        <!-- User menu link -->
+                                        <div class="list-group list-group-borderless h-100 py-3">
+
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <i class="pli-list-view fs-5 me-2"></i>
+                                                Configuracion
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <i class="pli-power-2 fs-5 me-2"></i>
+                                                Salir
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End - User dropdown -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - HEADER -->
+
+        <!-- MAIN NAVIGATION -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav id="mainnav-container" class="mainnav">
+            <div class="mainnav__inner">
+
+                <!-- Navigation menu -->
+                <div class="mainnav__top-content scrollable-content pb-5">
+
+                    <!-- Profile Widget -->
+                    <div class="mainnav__profile mt-3 d-flex3">
+
+                        <div class="mt-2 d-mn-max"></div>
+
+                        <!-- Profile picture  -->
+                        <div class="mininav-toggle text-center py-2">
+                            <img class="mainnav__avatar img-md rounded-circle border"
+                                src="./assets/recursos-graficos/unach5.png" alt="Profile Picture">
+                        </div>
+
+                        <div class="mininav-content collapse d-mn-max">
+                            <div class="d-grid">
+
+                                <!-- User name and position -->
+                                <button class="d-block btn shadow-none p-2" data-bs-toggle="collapse"
+                                    data-bs-target="#usernav" aria-expanded="false" aria-controls="usernav">
+                                    <span class="dropdown-toggle d-flex justify-content-center align-items-center">
+                                        <h6 class="mb-0 me-3">{{txt_usuario}} </h6>
+                                    </span>
+                                    <small class="text-muted">Administrator</small>
+                                </button>
+
+                                <!-- Collapsed user menu -->
+                                <div id="usernav" class="nav flex-column collapse">
+                                    <a href="#" class="nav-link">
+                                        <i class="demo-pli-unlock fs-5 me-2"></i>
+                                        <span class="ms-1">Logout</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End - Profile widget -->
+
+                    <!-- Components Category -->
+                    <div class="mainnav__categoriy py-3">
+
+                        <!-- Titulo de panel lateral -->
+                        <h6 class="mainnav__caption mt-0 px-3 fw-bold">Titulo panel lateral</h6>
+
+                        <!-- Actividad / Menu 1-->  
+                        <ul class="mainnav__menu nav flex-column">
+                            
+                            <!-- Titulo Actividad -->
+                            <!-- Link with submenu -->
+                            <li class="nav-item has-sub">
+                                <a class="mininav-toggle nav-link collapsed">
+                                    <i class="pli-hotel fs-3 me-2"></i>
+                                    <span class="nav-label ms-1">Actividad</span>
+                                </a>
+
+                                <!-- SubActividades --> 
+                                <!-- Ui Elements submenu list -->
+                                <ul class="mininav-content nav collapse">
+                                    <!-- SubActividad 1 -->
+                                    <li class="nav-item"  routerLinkActive="active">
+                                        <a [routerLink]="['#']" routerLinkActive="active" class="nav-link">
+                                            SubActividad 1
+                                        </a>
+                                    </li>
+                                    <!-- SubActividad 2 -->
+                                    <li class="nav-item"  routerLinkActive="active">
+                                        <a [routerLink]="['#']" routerLinkActive="active" class="nav-link">
+                                            SubActividad 2
+                                        </a>
+                                    </li>
+                                    <!-- SubActividad 3 -->
+                                    <li class="nav-item"  routerLinkActive="active">
+                                        <a [routerLink]="['#']" routerLinkActive="active" class="nav-link">
+                                            SubActividad 3
+                                        </a>
+                                    </li>                                      
+                                </ul>
+                                <!-- END : Ui Elements submenu list -->
+                            </li>
+                            <!-- END : Link with submenu -->
+                        </ul>
+                        <!-- FIN Actividad / Menu 1-->  
+                    </div>
+                    <!-- END : Components Category -->
+                </div>
+                <!-- End - Navigation menu -->
+
+                <!-- Bottom navigation menu -->
+                <div class="mainnav__bottom-content border-top pb-2">
+                    <ul id="mainnav" class="mainnav__menu nav flex-column">
+                        <li class="nav-item has-sub">
+                            <a href="#" class="nav-link mininav-toggle collapsed" aria-expanded="false">
+                                <i class="demo-pli-unlock fs-5 me-2"></i>
+                                <span class="nav-label ms-1">Cerrar sesión</span>
+                            </a>
+                            <ul class="mininav-content nav flex-column collapse">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">This device only</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">All Devices</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Lock
+                                        screen</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End - Bottom navigation menu -->
+            </div>
+        </nav>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - MAIN NAVIGATION -->
+
+        <!-- SIDEBAR -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - SIDEBAR -->
+
+    </div>
+</body>

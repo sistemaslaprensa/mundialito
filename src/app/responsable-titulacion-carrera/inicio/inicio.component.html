@@ -1,0 +1,48 @@
+
+<app-encabezado-inicio 
+[titulo]="txt_titulo" [subtitulo]="txt_subtitulo">
+</app-encabezado-inicio>
+
+<div class="card-body">
+    <div class="card">
+        <div class="card-body">
+            <div class="contenido row justify-content-center mx-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Configuraciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [routerLink]="['/responsable-carrera/configuraciones-titulacion']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-university fs-1"></i>
+                                            <span class="fw-bolder"> Carrera</span>
+                                        </td>
+                                    </tr>
+                                    <tr [routerLink]="['/responsable-carrera/configuracion-opciones-titulacion']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-check fs-1"></i>
+                                            <span class="fw-bolder"> Opciones de Titulación</span>
+                                        </td>
+                                    </tr>
+                                    <tr [routerLink]="['/responsable-carrera/configuracion-secuencia-periodo']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-rotation fs-1"></i>
+                                            <span class="fw-bolder"> Secuencia de periodos</span>
+                                        </td>
+                                    </tr>
+                                    <tr [routerLink]="['/responsable-carrera/configuracion-valores-arrancel']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-coins fs-1"></i>
+                                            <span class="fw-bolder"> Valores de arrancel</span>
+                                        </td>
+                                    </tr>          
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

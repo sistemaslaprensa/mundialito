@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+.mat-mdc-form-field {
+    font-size: 15px;
+    width: 100%;
+}
+
+#add {
+    font-size: 14px;
+}
+
+.mat-mdc-option.mdc-list-item {
+    font-size: 15px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #ffff !important;
+    height: 50px !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.mat-h6,
+.mat-typography .mat-h6,
+.mat-typography h6 {
+    font: 400 calc(19px * 0.67)/20px Roboto, sans-serif;
+    margin: 0 0 12px;
+}

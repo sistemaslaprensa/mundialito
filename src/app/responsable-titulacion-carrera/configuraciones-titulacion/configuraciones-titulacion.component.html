@@ -1,0 +1,199 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="card-body">
+    <div class="card mb-3">
+   
+        <div class="card-body">
+            <div class="d-md-flex align-items-baseline mt-3">       
+                <h5 class="card-title">Configuracion de carrera</h5>               
+                <div class="d-flex align-items-center gap-1 text-nowrap ms-auto ">
+                    <button type="button" class="btn btn-info hstack gap-2" data-bs-toggle="modal"
+                        data-bs-target="#modal-agregar-configuracion-titulacion">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Agregar configuracion carrera
+                    </button>                    
+                </div>                
+            </div>
+            <div class="d-md-flex align-items-baseline mt-3 mb-3">       
+                <div class="col-sm-9">
+                    <div class="form-check form-check-inline ">
+                        <input id="_dm-inlineRadio3" class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                        <label for="_dm-inlineRadio3" class="form-check-label">Actual</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="_dm-inlineRadio2" class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                        <label for="_dm-inlineRadio2" class="form-check-label">Ver historial de configuraciones</label>
+                    </div>
+                </div>     
+            </div>           
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Facultad</th>
+                            <th>Carrera</th>
+                            <th>Sistema de estudios</th>              
+                            <th>Semestre de selección de opción de titulación</th>              
+                            <th>Semestre de inicio de titulación</th>              
+                            <th>Número de semestres carrera</th>              
+                            <th>Número de semestres titulación</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{configuracionCarrera.idConfiguracionCarrera}}</td>
+                            <td>{{configuracionCarrera.nombre}}</td>
+                            <td>{{configuracionCarrera.facultad}}</td>
+                            <td>{{configuracionCarrera.carrera}}</td>
+                            <td>{{configuracionCarrera.sistemaEstudios}}</td>
+                            <td>{{configuracionCarrera.nivelSeleccionOpcionTitulacion}}</td>
+                            <td>{{configuracionCarrera.nivelInicioTitulacion}}</td>
+                            <td>{{configuracionCarrera.numeroSemestresCarrera}}</td>
+                            <td>{{configuracionCarrera.numeroSesmestresTitulacion}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- INICIO MODAL EDITAR ASIGNACION -->
+<div class="modal" tabindex="-1" id="modal-agregar-configuracion-titulacion">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-2 mb-0" style="font-size: large; font-weight:400;">Agregar configuración de carrera</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                        <form>
+                            <h5 class="card-title">Configuraciones</h5>
+
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Nombre de configuración</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="inputState" class="form-control"
+                                        [(ngModel)]="entidadConfiguracionCarrera.nombre" name="nombreConfig" placeholder="introduzca un nombre para la configuración">
+                                </div>
+                            </div>
+
+                            <!-- FACULTAD -->
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Facultad</label>
+                                <div class="col-sm-9">
+
+                                    <div class="col-sm-9">
+                                        <input type="text" disabled id="inputState" value="{{FacultadResponsable}}" class="form-control" name="nsc">                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Carrera</label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-9">
+                                        <input type="text" disabled id="inputState" value="{{CarreraResponsable}}" class="form-control" name="nsc">                             
+                                     
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- END : Text input -->
+
+                            <!-- Sistema de estudios -->
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Sistema
+                                    de estudios</label>
+                                <div class="col-sm-9">
+                                    <input type="text" disabled id="inputState" value="SEMESTRAL" class="form-control" name="nsc">                             
+                                 
+                                </div>
+                            </div>
+                            <!-- END : Text input -->
+
+                            <!-- Semestre de selección de opción de titulación -->
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Semestre de
+                                    selección de opción de titulación</label>
+                                <div class="col-sm-9">
+                                    <select id="selectNivelSelccionOpcion" class="form-select"
+                                        (change)="seleccionarNivelSeleccionOpcion($event)"
+                                        [(ngModel)]="entidadConfiguracionCarrera.idNivelSeleccionOpcionTitulacion"
+                                        name="snot">
+                                        <option value="" selected disabled>Seleccione una opción
+                                        </option>
+                                        <option *ngFor="let nivelSeleccion of vecNiveles"
+                                            [value]="nivelSeleccion.nivelID">{{ nivelSeleccion.nivel}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- END : Text input -->
+
+                            <!-- Semestre de inicio de titulación -->
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Semestre de
+                                    inicio de titulación </label>
+                                <div class="col-sm-9">
+                                    <select id="selectNivelInicio" class="form-select"
+                                        (change)="seleccionarNivelInicioTitulacion($event)"
+                                        [(ngModel)]="entidadConfiguracionCarrera.idNivelInicioTitulacion"
+                                        name="snit">
+                                        <option value="" selected disabled>Seleccione una opción
+                                        </option>
+                                        <option *ngFor="let nivelInicio of vecNiveles"
+                                            [value]="nivelInicio.nivelID">{{ nivelInicio.nivel }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- END : Text input -->
+
+                            <!-- Número de semestres carrera -->
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Número de
+                                    semestres carrera</label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="inputState" class="form-control"
+                                        [(ngModel)]="entidadConfiguracionCarrera.numeroSemestresCarrera" name="nsc">
+                                </div>
+                            </div>
+                            <!-- END : Text input -->
+
+                            <!-- Número de semestres titulación -->
+                            <div class="row mb-3">
+                                <label for="_dm-textInput" class="col-sm-3 col-form-label">Número de
+                                    semestres titulación</label>
+                                <div class="col-sm-9">
+                                    <input type="number" id="inputState" class="form-control"
+                                        [(ngModel)]="entidadConfiguracionCarrera.numeroSesmestresTitulacion" name="sst">
+                                </div>
+                            </div>
+                            <!-- END : Text input -->
+
+                            <!-- <div class="d-grid mt-2">
+                                <button (click)="GuardarConfiguracionCarrera()" class="btn btn-primary"
+                                    type="submit">Guardar</button>
+                            </div> -->
+                        </form>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="GuardarConfiguracionCarrera()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL EDITAR ASIGNACION -->

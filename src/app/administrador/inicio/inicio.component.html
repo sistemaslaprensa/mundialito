@@ -1,0 +1,52 @@
+
+<app-encabezado-inicio 
+[titulo]="txt_titulo" [subtitulo]="txt_subtitulo">
+</app-encabezado-inicio>
+
+
+<div class="card-body">
+    <div class="card">
+        <div class="card-body">
+            <div class="contenido row justify-content-center mx-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Configuraciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [routerLink]="['/administrador/opciones-titulacion']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-check fs-1"></i>
+                                            <span class="fw-bolder"> Campeonatos
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr [routerLink]="['/administrador/responsables']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-conference fs-1"></i>
+                                            <span class="fw-bolder"> Cuentas </span>
+                                        </td>
+                                    </tr>                                   
+                                    <tr [routerLink]="['/administrador/tipo-matricula']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-file-copy-2 fs-1"></i>
+                                            <span class="fw-bolder"> Roles
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr [routerLink]="['/administrador/periodo-matricula']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-overtime-2 fs-1"></i>
+                                            <span class="fw-bolder"> Periodo de Matriculas
+                                            </span>
+                                        </td>
+                                    </tr>          
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

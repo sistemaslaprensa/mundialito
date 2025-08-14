@@ -1,0 +1,96 @@
+
+<app-encabezado-inicio 
+[titulo]="txt_titulo" [subtitulo]="txt_subtitulo">
+</app-encabezado-inicio>
+
+<div class="card-body">
+    <div class="card mb-3">
+        <div class="card-body">
+            <!-- <div class="content__wrap">
+                <p id="descripcion">
+                    Plataforma central de gestión de titulación.
+                </p>
+            </div> -->
+
+            <div class="contenido row justify-content-between mx-5">
+                <div class="col-md-4">
+
+                    <div class="card p-3">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Historial</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [routerLink]="['/estudiante/matriculas']" routerLinkActive="active">
+                                        <td class="hand"><i class="pli-box-with-folders fs-1"></i>
+                                            <span class="fw-bolder"> Trayectoria Académica </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card p-3">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Inscripciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [routerLink]="['/estudiante/seleccionar-opcion-titulacion']"
+                                        routerLinkActive="active">
+                                        <td class="hand"><i class="pli-check fs-1"></i>
+                                            <span class="fw-bolder"> Opción de titulación </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card p-3">
+
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Matriculación</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr [routerLink]="['/estudiante/generar-situacion-actual']"
+                                        routerLinkActive="active">
+                                        <td class="hand"><i class="pli-notepad fs-1"></i>
+                                            <span class="fw-bolder"> Matrícula Titulación </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

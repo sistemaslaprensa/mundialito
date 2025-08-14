@@ -1,0 +1,71 @@
+
+
+.separar{
+  margin-bottom: 10px;
+}
+
+span{
+  font-size: 120%;
+}
+
+.subtitulo{
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+/* Aplica a todos los círculos de los pasos por defecto */
+.mat-step-header .mat-step-icon {
+  background-color: gray;
+  color: white; /* Esto asegura que el número dentro del círculo sea visible */
+}
+
+/* Aplica solo al círculo del paso activo */
+.mat-step-header.mat-active .mat-step-icon {
+  background-color: blue;
+  color: white;
+}
+
+/* Asegúrate de que los pasos completos no cambien el color del círculo */
+.mat-step-header.mat-completed .mat-step-icon {
+  background-color: gray;
+  color: white;
+}
+
+.mat-horizontal-stepper-header, .mat-vertical-stepper-header {
+  pointer-events: none;
+}
+
+mat-step:hover {
+  font-size: 300%;
+}
+
+//opcion 2
+.custom-stepper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.step {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.step h3 {
+  margin-top: 0;
+}
+
+/* Estilos para los botones de navegación */
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}

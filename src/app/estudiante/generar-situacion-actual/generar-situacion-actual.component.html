@@ -1,0 +1,301 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="content__boxed">    
+    <div class="content__wrap">
+        <!-- Aqui Inicia el Cuerpo -->
+        <div class="card">
+            <div class="card-header">
+                <div class="content__boxed">
+                    <div class="content__wrap">
+                        <div class="card">
+                            <div class="card-body">
+                                <mat-stepper [linear]="isLinear" #stepper>
+                                    <mat-step [stepControl]="primerFormGroup">                                
+                                        <div role="complementary" class="gridjs gridjs-container" style="width: 100%;">
+                                            <div class="gridjs-wrapper" style="height: auto;">
+                                                
+                                                <form [formGroup]="primerFormGroup">
+                                                    <ng-template matStepLabel>Situacion Académica</ng-template>
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="min-width: 50px; width: 50px;">Situación Académica</th>
+                                                                <th style="min-width: 62px; width: 250px;">                                
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <ng-container *ngIf="poseeMatricula == true">
+                                                            <tbody class="gridjs-tbody">
+                                                                <tr>
+                                                                    <td>Código del estudiante</td>
+                                                                    <td>{{situacionActualTitulacion?.idUsuario}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Cédula</td>
+                                                                    <td>{{situacionActualTitulacion?.documentoIdentidad }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Estudiante</td>
+                                                                    <td>{{situacionActualTitulacion?.nombres }} 
+                                                                    {{situacionActualTitulacion?.apellidoPaterno }} 
+                                                                    {{situacionActualTitulacion?.apellidoMaterno }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Facultad</td>
+                                                                    <td>{{situacionActualTitulacion?.facultad }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Carrera</td>
+                                                                    <td>{{situacionActualTitulacion?.carrera }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Tipo de matricula</td>
+                                                                    <td>{{situacionActualTitulacion?.tipoMatricula }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Periodo Académico</td>
+                                                                    <td>{{situacionActualTitulacion?.periodo }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Observaciones</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>                                                        
+                                                        </ng-container>
+
+                                                        <ng-container *ngIf="poseeMatricula == false">
+                                                            <tbody class="gridjs-tbody">
+                                                                <tr>
+                                                                    <td>Código del estudiante</td>
+                                                                    <td>{{ situacionActualCarrera?.estudianteID }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Cédula</td>
+                                                                    <td>{{ situacionActualCarrera?.documentoIdentidad }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Estudiante</td>
+                                                                    <td>{{ situacionActualCarrera?.nombres }} 
+                                                                    {{situacionActualCarrera?.apellidoPaterno }} {{
+                                                                        situacionActualCarrera?.apellidoMaterno }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Facultad</td>
+                                                                    <td>{{ situacionActualCarrera?.facultad }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Carrera</td>
+                                                                    <td>{{ situacionActualCarrera?.carrera }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Ciclo</td>
+                                                                    <td>{{ situacionActualCarrera?.nivel }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Periodo Académico</td>
+                                                                    <td>{{ situacionActualCarrera?.periodo }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Observaciones</td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>                                                        
+                                                        </ng-container>
+
+                                                        
+                                                    </table>
+                                
+                                                    <button type="button" class="btn btn-outline-success" (click)="poseeMatricula ? GetSituacionActualTitulacionEstudiante() : GetSituacionEstudianteCarrera()">Verificar situación</button>
+        
+                                                    <!-- En el HTML -->
+                                                    <div class="d-flex justify-content-end">
+                                                        <button mat-button matStepperNext [disabled]="!verificarSituacionCompleta">Siguiente</button>
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </mat-step>
+
+                                    <mat-step [stepControl]="segundoFormGroup" label="Generar Nueva Matrícula">
+                                                                    
+                                        <div role="complementary" class="gridjs gridjs-container" style="width: 100%;">
+                                            <div class="gridjs-wrapper" style="height: auto;">
+                                                <form [formGroup]="segundoFormGroup">
+                                                    <ng-template matStepLabel>Generar Nueva Matrícula</ng-template>
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="min-width: 50px; width: 50px;">Situación Académica</th>
+                                                                <th style="min-width: 62px; width: 250px;">                                
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="gridjs-tbody">
+                                                            <tr>
+                                                                <td>Código del estudiante</td>
+                                                                <td>{{ nuevaMatriculaInfo?.idEstudiante }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Cédula</td>
+                                                                <td>{{ nuevaMatriculaInfo?.documentoIdentidad }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Estudiante</td>
+                                                                <td>{{ nuevaMatriculaInfo?.nombres }} 
+                                                                {{ nuevaMatriculaInfo?.apellidoPaterno }} 
+                                                                {{ nuevaMatriculaInfo?.apellidoMaterno }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Facultad</td>
+                                                                <td>{{ nuevaMatriculaInfo?.facultad }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Carrera</td>
+                                                                <td>{{ nuevaMatriculaInfo?.carrera }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Ciclo</td>
+                                                                <td>{{ nuevaMatriculaInfo?.nivel }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Periodo Académico</td>
+                                                                <td>{{ nuevaMatriculaInfo?.periodo }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tipo de matrícula</td>
+                                                                <td>{{ nuevaMatriculaInfo?.tipoMatricula }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Opción de titulación</td>
+                                                                <td>{{ nuevaMatriculaInfo?.opcionTitulacion }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Costo de la matrícula</td>
+                                                                <td>${{nuevaMatriculaInfo?.arrancel }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Observaciones</td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                
+                                                    <button type="button" class="btn btn-outline-success" (click)="GetNuevaMatriculaInfo()">Verificar situación</button>
+        
+                                                    <button type="button" class="btn btn-outline-success" (click)="GenerarMatricula()">Aceptar matricula</button>
+        
+                                                    <!-- En el HTML -->
+                                                    <div class="d-flex justify-content-end">
+                                                        <button mat-button matStepperNext [disabled]="!verificarSituacionCompleta">Siguiente</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </mat-step>                                
+                                
+                                    <mat-step [stepControl]="tercerFormGroup" label="Generar Orden de Pago">
+                                        <form [formGroup]="tercerFormGroup" class="">
+                                            <h2 class="subtitulo">UNIVERSIDAD NACIONAL DE CHIMBORAZO</h2>
+                                            <div class="d-md-flex align-items-baseline">
+                                                <div class="direccion">
+                                                    <p>
+                                                        <strong>Campus Norte "Ms. Edison Riera R."</strong>: Avda. Antonio José de Sucre, Km. 1 y 1/2 Vía a
+                                                        Guano Teléfono: 3730880, <br>
+                                                        <strong>Campus "La Dolorosa"</strong>: Avda. Eloy Alfaro y 10 de Agosto. Teléfonos: 3730910,<br>
+                                                        <strong>Campus "Centro"</strong>: Duchicela 17-15 y Princesa Toa Teléfonos: (593-3)3730880-ext.3500
+                                                    </p>
+                                                </div>
+                                                <div class="detalles ms-auto">
+                                                    <p>
+                                                        <strong>Orden de Pago N°:</strong>{{this.ordenPagoInfo?.idOrden}}<br>
+                                                        <strong>Fecha de Emisión:</strong>{{this.nuevaMatriculaGenerada?.fechaEmision | date:'dd/MM/yyyy'}}<br>
+                                                        <strong>Fecha de Validez:</strong>{{this.nuevaMatriculaGenerada?.fechaEmision | date:'dd/MM/yyyy'}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="info-container mt-4">
+                                                <div class="info-container mt-3">
+                                                    <p>
+                                                        <span class="cedula"><strong>Cedula:</strong> {{this.ordenPagoInfo?.documentoIdentidad}}</span>
+                                                        <span class="nombres"><strong>Nombres:</strong> {{this.ordenPagoInfo?.nombres}} {{this.ordenPagoInfo?.apellidoPaterno}} {{this.ordenPagoInfo?.apellidoMaterno}} </span>
+                                                        <span class="codigo"><strong>Código:</strong> {{this.ordenPagoInfo?.idEstudiante}}</span>
+                                                        <span class="ciclo"><strong>Ciclo:</strong> TITULACION</span>
+                                                        <span class="periodo"><strong>Periodo Académico:</strong> {{this.ordenPagoInfo?.periodo}}</span>
+                                                    </p>
+                                                </div>
+                                                
+                                                <div class="table-responsive">
+                                                    <!-- <table class="table table-striped"> -->
+                                    
+                                                    <table class="mat-elevation-z3 table table-striped-columns mt-3" aria-disabled="true">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 30px;">Cantidad</th>
+                                                                <th style="width: auto;">Concepto</th>
+                                                                <th style="width: 60px;">Total</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{this.ordenPagoInfo?.cantidad}}</td>
+                                                                <td>{{this.ordenPagoInfo?.concepto}}</td>
+                                                                <td>{{this.ordenPagoInfo?.total}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    
+                                                    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                                                        <button type="button" class="btn btn-info ">Descargar PDF</button>                                                        
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>                                    
+                                    
+                                            <ng-template #mostrarOpcion>
+                                                <!-- Tabla informativa -->
+                                                <div class="table-responsive">
+                                                    <!-- <table class="table table-striped"> -->
+                                    
+                                                    <table class="mat-elevation-z3 table table-striped-columns" aria-disabled="true">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Opcion de titulación</th>
+                                                                <th>Estado</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <!-- <td>{{seleccionEstudiante?.nombre}}</td> -->
+                                                                <!-- <td>{{seleccionEstudiante?.estado}}</td> -->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </ng-template>
+                                    
+                                    
+                                        </form>
+                                    </mat-step>
+                                
+                                    <mat-step>
+                                        <ng-template matStepLabel>Resumen</ng-template>
+                                        <p>You are now done.</p>
+                                        <div>
+                                            <button mat-button matStepperPrevious>Back</button>
+                                        </div>
+                                    </mat-step>
+                                
+                                </mat-stepper>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Aqui termina el Cuerpo -->
+</div>

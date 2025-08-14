@@ -1,0 +1,574 @@
+<body class="jumping">
+
+    <!-- PAGE CONTAINER -->
+    <div id="root" class="root mn--max hd--expanded">
+        <!-- CONTENTS -->
+        <section id="content" class="content">
+            <app-encabezado-inicio [titulo]="txt_titulo" [subtitulo]="txt_subtitulo"></app-encabezado-inicio>    
+            
+            
+            <!-- INFORMACION PAGINA / TITULO /LINEA-NAVEGACION -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="card">
+                            <div class="button-group mt-3 text-center">
+                                <span class="title-span d-block mb-2">2025</span>
+                            
+                                <!-- Botón Dropdown para dispositivos móviles -->
+                                <div class="dropdown d-block d-md-none">
+                                    <button class="btn btn-outline dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Menú
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Resumen</a>
+                                        <a class="dropdown-item" href="#">Partidos</a>
+                                        <a class="dropdown-item" href="#">Posiciones</a>
+                                        <a class="dropdown-item" href="#">Eliminatoria</a>
+                                        <!-- Otras opciones de menú -->
+                                    </div>
+                                </div>
+                                
+                            
+                                <!-- Botones individuales visibles en escritorio -->
+                                <button type="button" class="btn btn-outline d-none d-md-inline">Resumen</button>
+                                <button type="button" class="btn btn-outline d-none d-md-inline">Partidos</button>
+                                <button type="button" class="btn btn-outline d-none d-md-inline">Posiciones</button>
+                                <button type="button" class="btn btn-outline d-none d-md-inline">Eliminatoria</button>
+                            </div>
+                            
+
+                            <div>
+                                <div class="card-header">
+                                    <h4>Resumen</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action active">FASE DE GRUPOS - FECHA 1</a>                                        
+                                        <div class="list-group-item list-group-item-action xpartido">
+                                            <div class="xpartido-info">
+                                                <div class="fecha">Hoy 29/06/2024 15:00</div>
+                                                <div class="d-flex justify-content-between align-items-center partido-detalles">
+                                                    <div class="equipo">
+                                                        <img src="./assets/recursos-graficos/logo1.png" class="logoEquipo" alt="Logo Equipo 1">
+                                                    </div>
+                                                    <div class="resultado-info">
+                                                        <input type="text" class="resultadoEquipo" readonly value="1" disabled>
+                                                        <input type="text" class="resultadoEquipo" readonly value="2" disabled>
+                                                    </div>
+                                                    <div class="equipo">
+                                                        <img src="./assets/recursos-graficos/logo1.png" class="logoEquipo" alt="Logo Equipo 1">                                        
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center partido-detalles">
+                                                    <div class="equipo">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <span class="nombreEquipo">Ballenita antioqueña</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="equipo">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <span class="nombreEquipo">Ballenita antiode la verdderaqueña</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div>Penales</div>
+                                                        <div class="penales-info">
+                                                            <input type="text" class="penales" readonly value="1" disabled>
+                                                            <input type="text" class="penales" readonly value="1" disabled>
+                                                        </div>
+                                                    </div>
+                                                <div>Por jugar</div>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>                       
+                            
+                            <div class="container">
+                                <div class="accordion" id="accordionFaseGrupos">
+                                    <!-- Primer acordeón -->
+                                    <div class="list-group mb-3">                                    
+
+                                        <button class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center" type="button" data-toggle="collapse" data-target="#collapseFaseGrupos1" aria-expanded="true" aria-controls="collapseFaseGrupos1">
+                                            FASE DE GRUPOS - FECHA 1
+                                            <i class="pli-arrow-right-2 toggle-icon"></i>
+                                        </button>
+                                        
+                                        
+                            
+                                        <!-- Contenido del primer acordeón -->
+                                        <div id="collapseFaseGrupos1" class="collapse show" aria-labelledby="headingFaseGrupos1">
+                                            <!-- Ejemplo de partido -->
+                                            <div class="list-group-item list-group-item-action xpartido">
+                                                <div class="xpartido-info">
+                                                    <div>Hoy 29/06/2024 15:00</div>
+                                                    <div class="partido-row">
+                                                        <div>
+                                                            <img src="./assets/recursos-graficos/logo1.png" class="equipo-logo" alt="Logo Equipo 1">
+                                                            <span class="mx-2">MINGA F.C.</span>
+                                                        </div>
+                                                        <input type="text" class="resultado" readonly value="1" disabled>
+                                                    </div>
+                                                    <div class="partido-row">
+                                                        <div>
+                                                            <img src="./assets/recursos-graficos/logo1.png" class="equipo-logo" alt="Logo Equipo 2">
+                                                            <span class="mx-2">ATLETICO MINERO SC</span>
+                                                        </div>
+                                                        <input type="text" class="resultado" readonly value="2" disabled>
+                                                    </div>
+                                                    <div>Por jugar</div>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Otro ejemplo de partido -->
+                                            <div class="list-group-item list-group-item-action xpartido">
+                                                <div class="xpartido-info">
+                                                    <div>Hoy 29/06/2024 15:00</div>
+                                                    <div class="partido-row">
+                                                        <div>
+                                                            <img src="./assets/recursos-graficos/logo1.png" class="equipo-logo" alt="Logo Equipo 1">
+                                                            <span class="mx-2">Minga F.C.</span>
+                                                        </div>
+                                                        <input type="text" class="resultado" readonly value="1" disabled>
+                                                    </div>
+                                                    <div class="partido-row">
+                                                        <div>
+                                                            <img src="./assets/recursos-graficos/logo1.png" class="equipo-logo" alt="Logo Equipo 2">
+                                                            <span class="mx-2">Aletico Minero SC</span>
+                                                        </div>
+                                                        <input type="text" class="resultado" readonly value="2" disabled>
+                                                    </div>
+                                                    <div>Por jugar</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Segundo acordeón -->
+                                    <div class="list-group mb-3">
+                                        <button class="list-group-item list-group-item-action active" type="button" data-toggle="collapse" data-target="#collapseFaseGrupos2" aria-expanded="true" aria-controls="collapseFaseGrupos2">
+                                            Otra sección de fase de grupos
+                                            <i class="fa fa-chevron-down ml-2" style="color: white;"></i> <!-- Icono de flecha blanco al final -->
+                                        </button>
+                            
+                                        <!-- Contenido del segundo acordeón -->
+                                        <div id="collapseFaseGrupos2" class="collapse" aria-labelledby="headingFaseGrupos2">
+                                            <!-- Ejemplo de contenido -->
+                                            <div class="list-group-item list-group-item-action xpartido">
+                                                <div class="xpartido-info">
+                                                    <div>Hoy 30/06/2024 16:00</div>
+                                                    <div class="partido-row">
+                                                        <div>
+                                                            <img src="./assets/recursos-graficos/logo2.png" class="equipo-logo" alt="Logo Equipo 3">
+                                                            <span class="mx-2">EQUIPO 3</span>
+                                                        </div>
+                                                        <input type="text" class="resultado" readonly value="3" disabled>
+                                                    </div>
+                                                    <div class="partido-row">
+                                                        <div>
+                                                            <img src="./assets/recursos-graficos/logo2.png" class="equipo-logo" alt="Logo Equipo 4">
+                                                            <span class="mx-2">EQUIPO 4</span>
+                                                        </div>
+                                                        <input type="text" class="resultado" readonly value="4" disabled>
+                                                    </div>
+                                                    <div>Por jugar</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var accordions = document.querySelectorAll('.accordion .list-group-item-action');
+                                    
+                                    accordions.forEach(function(item) {
+                                        item.addEventListener('click', function() {
+                                            // Toggle the active class for the clicked item
+                                            this.classList.toggle('active');
+                                            
+                                            // Find the collapse element related to this item
+                                            var collapseTarget = document.querySelector(this.getAttribute('data-target'));
+                                            
+                                            // Toggle the collapse show class
+                                            collapseTarget.classList.toggle('show');
+                                            
+                                            // Change the icon direction
+                                            var icon = this.querySelector('.fa');
+                                            if (collapseTarget.classList.contains('show')) {
+                                                icon.classList.remove('fa-chevron-right');
+                                                icon.classList.add('fa-chevron-down');
+                                            } else {
+                                                icon.classList.remove('fa-chevron-down');
+                                                icon.classList.add('fa-chevron-right');
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+                            
+                            
+                            aqui 2 
+
+                            <div *ngFor="let p of partidos2" class="list-group-item list-group-item-action xpartido">
+  <div class="xpartido-info">
+    <div>Hoy {{ p.fecha }}</div>
+    <div class="partido-row">
+      <div>
+        <img [src]="p.equipo1.logo" class="equipo-logo" alt="Logo {{p.equipo1.nombre}}">
+        <span class="mx-2">{{ p.equipo1.nombre }}</span>
+      </div>
+      <input type="text" class="resultado" [value]="p.equipo1.goles" disabled>
+    </div>
+    <div class="partido-row">
+      <div>
+        <img [src]="p.equipo2.logo" class="equipo-logo" alt="Logo {{p.equipo2.nombre}}">
+        <span class="mx-2">{{ p.equipo2.nombre }}</span>
+      </div>
+      <input type="text" class="resultado" [value]="p.equipo2.goles" disabled>
+    </div>
+    <div>{{ p.estado }}</div>
+  </div>
+</div>
+
+
+                           
+                            <!-- POSICIONES -->
+
+                            <div>
+                                <div class="card-header">
+                                    <h4>Posiciones</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group mb-3">
+                                        <a href="#" class="list-group-item list-group-item-action active">FASE DE GRUPOS - FECHA 1</a>
+                                        <span>Grupo A</span>
+                                        <div class="table-container">
+                                            <!-- Tabla fija -->
+                                            <div class="fixed-table">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Club</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Argentina</td>
+                                                        </tr>
+                                                        <!-- Repetir estructura similar para otros equipos -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- Tabla desplazable -->
+                                            <div class="scrollable-table">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>PJ</th>
+                                                            <th>G</th>
+                                                            <th>E</th>
+                                                            <th>P</th>
+                                                            <th>GF</th>
+                                                            <th>GC</th>
+                                                            <th>DG</th>
+                                                            <th>Pts</th>
+                                                            <th>Últimos 5</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>2</td>
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                            <td>3</td>
+                                                            <td>0</td>
+                                                            <td>3</td>
+                                                            <td>6</td>
+                                                            <td>
+                                                                <div class="circle-icons-container">
+                                                                    <span class="circle-icon circle-green"><i class="fa fa-check"></i></span>
+                                                                    <span class="circle-icon circle-green"><i class="fa fa-check"></i></span>
+                                                                    <span class="circle-icon circle-white"><i class="fa fa-circle"></i></span>
+                                                                    <span class="circle-icon circle-white"><i class="fa fa-circle"></i></span>
+                                                                    <span class="circle-icon circle-white"><i class="fa fa-circle"></i></span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <!-- Repetir estructura similar para otros equipos -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <!-- Información adicional -->
+        <div class="additional-info">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Ascenso</h5>
+                    <div class="square-icon square-blue"></div> Siguiente ronda
+                    <br>
+                    <br>
+                    
+                </div>
+                <div class="col-md-4">
+                    <h5>Últimos 5 partidos</h5>
+                    <div class="circle-icon circle-green"><i class="fa fa-check"></i></div> Ganó
+                    <br>
+                    <div class="circle-icon circle-gray"><i class="fa fa-circle"></i></div> Empate
+                    <br>
+                    <div class="circle-icon circle-red"><i class="fa fa-times"></i></div> Perdió
+                    <br>
+                    <div class="circle-icon circle-white"><i class="fa fa-circle"></i></div> No jugó
+                </div>
+            </div>
+        </div>
+
+                                </div>
+                            </div>                            
+                            <!-- ESQUEMA DE POSICIONES -->
+                            <div class="card-header">
+                                <h4>Eliminatoria</h4>
+                            </div>
+                            <div class="card-body">                                
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action active">FASE DE GRUPOS - FECHA 1</a>
+                            
+                                    <div class="table-responsive">
+                                        <div class="row flex-nowrap overflow-auto">
+                                            <!-- Columna de Cuartos de Final -->
+                                            <div class="col">
+                                                <div class="partido-column">
+                                                    <div class="partido-header">
+                                                        <h3>CUARTOS DE FINAL</h3>
+                                                    </div>
+                                                    <div class="partido-body d-flex flex-column justify-content-center align-items-center">
+                            
+                                                        <div class="partido ">
+                                                            <div class="">
+                                                                Jue, 4/7, 8:00 p. M.
+                                                                <div class="partido-info">
+                                                                    <p>Por definirse</p>
+                                                                    <p>Por definirse</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            
+                                                        <div class="partido">
+                                                            <div class="">
+                                                                Vie, 5/7, 8:00 p. M.
+                                                                <div class="partido-info">
+                                                                    <p>Por definirse</p>
+                                                                    <p>Por definirse</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            
+                                                        <div class="partido">
+                                                            <div class="">
+                                                                Sáb, 6/7, 5:00 p. M.
+                                                                <div class="partido-info">
+                                                                    <p>Por definirse</p>
+                                                                    <p>Por definirse</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            
+                                                        <div class="partido">
+                                                            <div class="">
+                                                                Sáb, 6/7, 8:00 p. M.
+                                                                <div class="partido-info">
+                                                                    <p>Por definirse</p>
+                                                                    <p>Por definirse</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                            
+                            
+                            
+                                            <div class="col">
+                                                <div class="partido-column">
+                                                    <div class="partido-header">
+                                                        <h3>SEMIFINAL</h3>
+                                                    </div>
+                                                    <div class="partido-body d-flex flex-column justify-content-center align-items-center">
+                                                        <!-- Partidos de Semifinal -->
+                                                        <div class="partido mb-3">
+                                                            <div>
+                                                                Mar, 9/7, 7:00 PM
+                                                            </div>
+                                                            <div class="partido-info">
+                                                                <p>Por definirse</p>
+                                                                <p>Por definirse</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="partido">
+                                                            <div>
+                                                                Mié, 10/7, 7:00 PM
+                                                            </div>
+                                                            <div class="partido-info">
+                                                                <p>Por definirse</p>
+                                                                <p>Por definirse</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Columna de Final -->
+                                            <div class="col">
+                                                <div class="partido-column">
+                                                    <div class="partido-header">
+                                                        <h3>FINAL</h3>
+                                                    </div>
+                                                    <div class="partido-body d-flex flex-column justify-content-center align-items-center">
+                                                        <!-- Partido de Final -->
+                                                        <div class="partido">
+                                                            <div class="">
+                                                                Sáb, 6/7, 8:00 p. M.
+                                                                <div class="partido-info">
+                                                                    <p>Por definirse</p>
+                                                                    <p>Por definirse</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
+                            
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <header class="header">
+            <div class="header__inner">
+                <!-- Logo -->
+                <div class="header__brand">
+                    <div class="brand-wrap">
+                        <!-- logo -->
+                        <a class="brand-img stretched-link">
+                            <img src="./assets/recursos-graficos/UvirtualBlanco.png" alt="Nifty Logo" class="Nifty logo" width="40" height="40">
+                        </a>
+                        <!-- logo title -->
+                        <div class="brand-title hand"> EcuaFut </div>
+
+                        
+                    </div>
+                </div>
+                <!-- End - logo -->
+ 
+                <div class="header__content">
+                    <!-- Content Header - Left Side: -->
+                    <div class="header__content-start">
+                        <!-- Navigation Toggler -->
+                        <button type="button" class="nav-toggler header__btn btn btn-icon btn-sm" aria-label="Nav Toggler">
+                            <i class="pli-list-view"></i>
+                        </button>
+                    </div>
+                    <!-- End - Content Header - Left Side -->
+ 
+                   
+                    <!-- Content Header - Right Side: -->
+                    <div class="header__content-end">
+                        <!-- User dropdown -->
+                        <div class="dropdown">
+                            <!-- Toggler -->
+                            <button class="header__btn btn btn-icon btn-sm" type="button" data-bs-toggle="dropdown" aria-label="User dropdown" aria-expanded="false">
+                                <i class="psi-male"></i>
+                            </button>
+                            <!-- User dropdown menu -->
+                            <div class="dropdown-menu dropdown-menu-end w-md-200px">
+                                <a routerLink="/login" class="list-group-item list-group-item-action fs-5 hand">
+                                    <i class="pli-power-2"></i> Iniciar sesión
+                                </a>                               
+                            </div>
+                        </div>
+                        <!-- End - User dropdown -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - HEADER -->
+ 
+        <!-- MAIN NAVIGATION -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <nav id="mainnav-container" class="mainnav">
+            <div class="mainnav__inner">
+                <!-- Navigation menu -->
+                <div class="mainnav__top-content scrollable-content pb-5">
+                    <!-- Profile Widget -->
+                    <div class="mainnav__profile mt-3 d-flex3">
+                        <div class="mt-2 d-mn-max"></div>
+                        <!-- Profile picture  -->
+                        <div class="mininav-toggle text-center py-2">
+                            <img class="mainnav__avatar img-md rounded-circle border" src="./assets/recursos-graficos/unach5.png" alt="Profile Picture">
+                        </div>
+ 
+                    </div>
+                    <!-- End - Profile widget -->
+ 
+                    <!-- Components Category -->
+                    <div class="mainnav__categoriy py-3">
+                        <!-- Titulo de panel lateral -->
+                        <h6 class="mainnav__caption mt-0 px-3 fw-bold">Campeonatos de fútbol</h6>
+                        <!-- Actividad / Menu 1-->
+                        <ul class="mainnav__menu nav flex-column">
+                            <!-- Actividad -->
+                            <!-- Link with submenu -->
+                            <li class="nav-item has-sub">
+                                <!-- Actividad/Titulo -->
+                                <a class="mininav-toggle collapsed btn shadow-none " data-bs-toggle="collapse" data-bs-target="#menunav1">
+                                    <i class="pli-settings-window fs-3 me-2"></i>
+                                    <span class="nav-label ms-1">Copa Chimborazo</span>
+                                </a>
+                                <!-- SubActividades/desplegable -->
+                                <ul id="menunav1" class="mininav-content nav collapse" data-bs-toggle="collapsed">
+                                    <li class="nav-item" routerLinkActive="active">
+                                        <a routerLinkActive="active" class="nav-link"> 2020 </a>
+                                    </li>
+                                    <li class="nav-item" routerLinkActive="active">
+                                        <a routerLinkActive="active" class="nav-link"> 2021 </a>
+                                    </li>
+                                    <li class="nav-item" routerLinkActive="active">
+                                        <a routerLinkActive="active" class="nav-link"> 2022</a>
+                                    </li>
+                                    <li class="nav-item" routerLinkActive="active">
+                                        <a routerLinkActive="active" class="nav-link"> 2023 </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- END : Link with submenu -->
+                        </ul>
+                        <!-- FIN Actividad-->
+                    </div>
+                    <!-- END : Components Category -->
+                </div>
+                <!-- End - Navigation menu -->
+            </div>
+        </nav>
+    </div>
+</body>

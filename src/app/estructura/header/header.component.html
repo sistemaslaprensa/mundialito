@@ -1,0 +1,88 @@
+<header class="header">
+    <div class="header__inner">
+            <!-- Logo -->
+            <div class="header__brand">
+                    <div class="brand-wrap">
+                            <!-- logo -->
+                            <a href="./index.html" class="brand-img stretched-link">
+                                    <img src="./assets/recursos-graficos/UvirtualBlanco.png"
+                                            alt="Nifty Logo" class="Nifty logo" width="40"
+                                            height="40">
+                            </a>
+                            <!-- logo title -->
+                            <div class="brand-title hand" routerLink="/panel-configuracion"> Unach
+                            </div>
+                    </div>
+            </div>
+            <!-- End - logo -->
+
+            <div class="header__content">
+                    <!-- Content Header - Left Side: -->
+                    <div class="header__content-start">
+                            <!-- Navigation Toggler -->
+                            <button type="button"
+                                    class="nav-toggler header__btn btn btn-icon btn-sm"
+                                    aria-label="Nav Toggler">
+                                    <i class="pli-list-view"></i>
+                            </button>
+                    </div>
+                    <!-- End - Content Header - Left Side -->
+
+                    <!-- Content Header - Right Side: -->
+                    <div class="header__content-end">                            
+                        <span> Usuario: ----- {{txt_usuario}} </span> 
+                            <!-- User dropdown -->
+                            <div class="dropdown">
+                                    <!-- Toggler -->
+                                    <button class="header__btn btn btn-icon btn-sm" type="button"
+                                            data-bs-toggle="dropdown" aria-label="User dropdown"
+                                            aria-expanded="false">
+                                            <i class="psi-male"></i>
+                                    </button>
+
+                                    <!-- User dropdown menu -->
+                                    <div class="dropdown-menu dropdown-menu-end w-md-250px">
+                                            <!-- User dropdown header -->
+                                            <div
+                                                    class="d-flex align-items-center border-bottom px-3 py-2">
+                                                    <div class="flex-shrink-0">
+                                                            <img class="img-sm rounded-circle"
+                                                                    src="./assets/recursos-graficos/unach5.png"
+                                                                    alt="Profile Picture"
+                                                                    loading="lazy">
+                                                            <h5 class="mb-0">Nombre de usuario</h5>
+                                                            <span
+                                                                    class="text-muted fst-italic">example@example.com</span>
+                                                    </div>
+                                            </div>
+
+                                            <div class="row">
+                                                    <!-- Simple widget and reports -->
+                                                    <div class="list-group list-group mb-3">
+                                                            <!-- User menu link -->
+                                                            <div
+                                                                    class="list-group list-group-borderless h-100 py-3">
+
+                                                                    <a href="#"
+                                                                            class="list-group-item list-group-item-action">
+                                                                            <i
+                                                                                    class="pli-list-view fs-5 me-2"></i>
+                                                                            Configuracion
+                                                                    </a>
+                                                                    <a href="#"
+                                                                            class="list-group-item list-group-item-action">
+                                                                            <i
+                                                                                    class="pli-power-2 fs-5 me-2"></i>
+                                                                            Salir
+                                                                    </a>
+                                                            </div>
+                                                    </div>
+                                            </div>
+
+                                    </div>
+                            </div>
+                            <!-- End - User dropdown -->
+                    </div>
+            </div>
+    </div>
+</header>

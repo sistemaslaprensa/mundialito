@@ -1,0 +1,188 @@
+<app-encabezado [nivel1]="txt_nivel1" [nivel2]="txt_nivel2" [nivel3]="txt_nivel3" [titulo]="txt_titulo"
+    [subtitulo]="txt_subtitulo">
+</app-encabezado>
+
+<div class="card-body">
+    <div class="card mb-3">
+        <div class="card-body">
+            <!-- Inline Form -->          
+
+            <div class="d-md-flex align-items-baseline mt-3">
+                <h5 class="card-title">Administración de responsables de facultades/carreras para la unidad de titulación</h5>
+                <div class="d-flex align-items-center gap-1 text-nowrap ms-auto">                    
+                    <button type="button" class="btn btn-info hstack gap-2" data-bs-toggle="modal"
+                        data-bs-target="#modal-agregar-responsables">
+                        <i class="demo-psi-add fs-4"></i>
+                        <span class="vr"></span>
+                        Agregar responsable
+                    </button>
+                </div>
+            </div>            
+
+            <div class="d-md-flex align-items-baseline mt-3 mb-3">       
+                <div class="row-cols-md-auto">
+                    <div class="form-check form-check-inline ">
+                        <input id="_dm-inlineRadio3" class="form-check-input" type="radio" name="inlineRadioOptions" 
+                        value="option1" [(ngModel)]="selectedOption" (change)="onOptionChange(selectedOption)">
+                        <label for="_dm-inlineRadio3" class="form-check-label">Vigentes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input id="_dm-inlineRadio2" class="form-check-input" type="radio" name="inlineRadioOptions"
+                        value="option2" [(ngModel)]="selectedOption" (change)="onOptionChange(selectedOption)">
+                        <label for="_dm-inlineRadio2" class="form-check-label">Ver historial de responsables</label>
+                    </div>
+
+                    <ng-container *ngIf="!showPeriodSelect">
+                    <div class="form-check form-check-inline">                        
+                        <select id="inputState1" class="form-select" (change)="seleccionarCargoBDLocal($event)">                            
+                            <option value="" selected disabled>Seleccione un cargo</option>
+                            <option value="3">Decano</option>
+                            <option value="4">Director de Carrera</option>
+                            <option value="5">Secretaria de Carrera</option>
+                            <option value="6">Responsable de Carrera</option>
+                        </select>                        
+                    </div>
+                    </ng-container>
+                    <ng-container *ngIf="showPeriodSelect">
+                        <div class="form-check form-check-inline">                        
+                            <select id="novigentes" class="form-select" (change)="seleccionarCargoBDLocal($event)">                            
+                                <option value="" selected disabled>Seleccione un cargo</option>
+                                <option value="3">Decano</option>
+                                <option value="4">Director de Carrera</option>
+                                <option value="5">Secretaria de Carrera</option>
+                                <option value="6">Responsable de Carrera</option>
+                            </select>                        
+                        </div>
+                      </ng-container>      
+                    
+                      
+                    <div class="form-check form-check-inline">                        
+                        <ng-container *ngIf="!showPeriodSelect">
+                            <input id="periodoNombre" class="form-control" type="text" 
+                            [value]="entidadPeriodo.descripcion" readonly>
+                          </ng-container>
+                          <ng-container *ngIf="showPeriodSelect">
+                            <select id="inputState2" class="form-select" (change)="seleccionarPeriodoNoVigente($event)">
+                              <option value="" selected disabled>Seleccione un periodo</option>
+                              <option 
+                              *ngFor="let periodo of vperiodos" [value]="periodo.periodoId">{{periodo.descripcion}}</option>
+                            </select>
+                          </ng-container>                   
+                    </div>
+                </div>     
+            </div> 
+            
+            <!-- Tabla informativa -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo Institucional</th>
+                            <th>Facultad</th>
+                            <th>Carrera</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="selectedOption === 'option1'">
+                            <tr *ngFor="let responsables of vResponsablesBD">
+                                <td>{{responsables.idServidor}}</td>
+                                <td>{{responsables.nombre}}</td>
+                                <td>{{responsables.email}}</td>
+                                <td>{{responsables.facultad}}</td>
+                                <td>{{responsables.carrera}}</td>
+                                <td>{{responsables.estado}}</td>
+                            </tr>
+                        </ng-container>
+                        <ng-container *ngIf="selectedOption === 'option2'">
+                            <tr *ngFor="let responsables of vResponsablesBD">
+                                <td>{{responsables.idServidor}}</td>
+                                <td>{{responsables.nombre}}</td>
+                                <td>{{responsables.email}}</td>
+                                <td>{{responsables.facultad}}</td>
+                                <td>{{responsables.carrera}}</td>
+                                <td>{{responsables.estado}}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- INICIO MODAL EDITAR ASIGNACION -->
+<div class="modal" tabindex="-1" id="modal-agregar-responsables">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="font-size: large; font-weight: 400">Agregar responsables de titulación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="d-md-flex align-items-baseline mt-3">
+                        <div class="row row-cols-md-auto g-3 align-items-center">
+                            <label for="inputState3" class="form-label">Periodo</label>
+                            <div class="col-12">
+                                <input id="inputState3" class="form-control" disabled value="{{entidadPeriodo.descripcion}}">                                 
+                            </div>                                   
+
+                            <label for="inputState4" class="form-label">Cargo</label>
+                            <div class="col-12">
+                                <select id="inputState4" class="form-select" (change)="seleccionarCargo($event)">
+                                    
+                                    <option value="" selected disabled>Seleccione un cargo</option>
+                                    <option value="3">Decano</option>
+                                    <option value="4">Director de Carrera</option>
+                                    <option value="5">Secretaria de Carrera</option>
+                                    <option value="6">Responsable de Carrera</option>
+                                </select>                                
+                            </div>
+                        </div>
+                        <div *ngIf="loading" class="loading-indicator">
+                            <div class="spinner-border text-primary" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Correo Institucional</th>
+                                    <th>Facultad</th>
+                                    <th>Carrera</th>
+                                    <th>Seleccionar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let objResul of resultados">
+                                    <td>{{objResul.idServidor}}</td>
+                                    <td>{{objResul.nombre}} {{objResul.apellidoPaterno}} {{objResul.apellidoMaterno}}</td>
+                                    <td>{{objResul.email}}</td>
+                                    <td>{{objResul.facultad}}</td>
+                                    <td>{{objResul.carrera}}</td>
+                                    <!-- <td> <input type="checkbox" (change)="seleccionarServidor(objResul)"></td> -->
+                                </tr> 
+        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary" (click)="agregarSeleccionados(cargoSeleccionado)">Agregar Seleccionados</button> -->
+
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="agregarUsuarios()" data-bs-dismiss="modal">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FINAL MODAL EDITAR ASIGNACION -->
